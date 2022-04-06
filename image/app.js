@@ -14,7 +14,9 @@ function classifyImage(){
   classifier.classify(document.getElementById('output'), (err, results) => {
     console.log(results);
     console.log(results[0].label);
-    speak(`I think it is a ${results[0].label}`)
+    document.getElementById("text").innerHTML = `I think it is a ${results[0].label}. I estimate around ${results[1].confidence.toFixed(2) * 100} percent`;
+    speak(`I think it is a ${results[0].label}. I estimate around ${results[1].confidence.toFixed(2) * 100} percent`)
+   
 });
 }
 
